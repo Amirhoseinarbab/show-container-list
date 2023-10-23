@@ -17,7 +17,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch data/questions.json --port 8001"
+    "server": "json-server --watch data/questions.json --port 8001",
+    "p": "prettier --write **/*.{js,jsx,ts,tsx}"
   },
   "eslintConfig": {
     "extends": [
@@ -35,9 +36,14 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ],
-    "husky" : {
-      "pre-commit": "prettier --write . && git add -A ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx prettier --write . && git add -A ."
     }
+  },
+  "devDependencies": {
+    "husky": "^4.3.8"
   }
 }
